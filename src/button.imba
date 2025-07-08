@@ -30,10 +30,10 @@ tag app-button
 		&.regular
 			rd:3 fs:6 px:6 py:1.5 h:10
 			&:has(.bsicon) pl:3
-			.bsicon mr:4 fs:10 tween: all 275ms ease
+			.bsicon mr:4 fs:11 tween: all 275ms ease
 			@media(hover: hover)
 				@hover scale:1.03
-				@hover .bsicon scale:1.07
+				@hover .bsicon scale:1.08
 			scale:1 @active:0.96
 
 		@media(hover: hover)
