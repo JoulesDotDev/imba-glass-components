@@ -3,12 +3,12 @@ tag app-card
 	mouseY = 0
 
 	css .card
-		backdrop-filter: blur(5px) saturate(200%) brightness(1)
-		bg:white/10 bd:white/20 c:$page-text
+		backdrop-filter: blur(7px) saturate(200%) brightness(1)
+		bg:white/10 bd:2px white/20 c:$page-text
 		mih:10 miw:10 rd:4 h:100% bxs:lg of:hidden
 		tween:backdrop-filter 500ms ease
 		@media(hover: hover)
-			@hover backdrop-filter: blur(5px) saturate(170%) brightness(1.15)
+			@hover backdrop-filter: blur(5px) saturate(170%) brightness(1.1)
 
 		@media(hover: hover)
 			&:before
@@ -16,7 +16,7 @@ tag app-card
 				content:"" pos:abs t:$y l:$x w:200 h:200
 				pe:none mix-blend-mode:normal translate:-50% -50%
 				tween:opacity 200ms ease
-				bg:radial-gradient(circle at 50% 50%, white/10 0%, transparent 40%)
+				bg:radial-gradient(circle at 50% 50%, white/15 0%, transparent 20%)
 		
 	css .title fs:12 p:4 
 

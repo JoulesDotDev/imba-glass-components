@@ -15,10 +15,12 @@ tag App
 			<div slot="title"> "Glass Card"
 			<div[p:4] slot="content">
 				<div[mt:auto d:flex jc:end]>
-					<app-button variant="icon" icon="plus"> 
+					<app-button type="solid" variant="icon" icon="plus"> 
 
 		<app-button variant="icon" icon="plus">
+		<app-button type="solid" variant="regular"> "Click me"
 		<app-button variant="regular"> "Click me"
+		<app-button type="solid" icon="person" variant="regular"> "Action"
 		<app-button icon="person" variant="regular"> "Action"
 
 imba.mount <App>
