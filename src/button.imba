@@ -9,14 +9,14 @@ tag app-button
 	css button 
 		d:flex jc:center ai:center
 		c:gray9 @dark: gray1
-		bg:white/15 bd:white/20
-		backdrop-filter: blur(3px) saturate(140%)
+		backdrop-filter: blur(4px) saturate(180%)
 		@media(hover: hover)
 			@hover filter:brightness(1.2)
-			@hover bxs:lg translate:0 -2px
+			@hover bxs:lg translate:0 -2px bdb:3px white/20
+			tween: all 275ms ease, border-bottom 100ms ease of:hidden
 		filter:none @active:brightness(1.1)
-		bxs:sm @active:xs translate:none @active:0 1px
-		tween: all 275ms ease of:hidden
+		bg:white/15 bd:white/20 bdb@active:white/20
+		bxs:sm @active:sm translate:none @active:0 1px
 
 		&.icon
 			h:12 w:12 rd:full fs:12
@@ -32,7 +32,7 @@ tag app-button
 				content:"" pos:abs t:$y l:$x w:80 h:80
 				pe:none mix-blend-mode:overlay translate:-50% -50%
 				tween:opacity 200ms ease
-				bg:radial-gradient(circle at 50% 50%, white/45 0%, transparent 15%)
+				bg:radial-gradient(circle at 50% 50%, white/35 0%, transparent 15%)
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
