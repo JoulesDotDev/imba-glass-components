@@ -1,3 +1,3 @@
 global css body
 	$page-text: white
-	$page-text-solid: gray8
+	$page-text-solid: gray9
