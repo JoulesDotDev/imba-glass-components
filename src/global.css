@@ -7,6 +7,10 @@ body {
     background-repeat: no-repeat;
 }
 
+/* body {
+    background: rgb(148, 147, 147);
+} */
+
 * {
     font-family: 'Lexend Deca', sans-serif;
 }

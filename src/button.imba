@@ -9,8 +9,8 @@ tag app-button
 	css button 
 		d:flex jc:center ai:center
 		c:gray9 @dark: gray1
-		bg:white/30 bd:white/40
-		backdrop-filter: blur(4px) saturate(140%)
+		bg:white/20 bd:white/30
+		backdrop-filter: blur(2px) saturate(140%)
 		@media(hover: hover)
 			@hover filter:brightness(1.2)
 			@hover bxs:lg
@@ -43,7 +43,11 @@ tag app-button
 				pe:none mix-blend:screen translate:-50% -50%
 				tween:opacity 200ms ease
 				bg:radial-gradient(circle at 50% 50%, white/45 0%, transparent 15%)
-
+		
+		&:after
+			content:"" pos:abs inset:0 rd:inherit pe:none
+			mix-blend-mode:overlay o:1 w:100% h:100% t:0 l:0
+			bg: radial-gradient(circle at 20% 30%, purple6/20, transparent 40%), radial-gradient(circle at 60% 20%, teal6/15, transparent 50%), radial-gradient(circle at 80% 70%, yellow6/15, transparent 50%), radial-gradient(circle at 40% 80%, cyan6/15, transparent 50%), radial-gradient(circle at 30% 50%, red6/20, transparent 40%)
 
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
