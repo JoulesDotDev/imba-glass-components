@@ -1,30 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
 body {
-  background:
-    radial-gradient(circle at 20% 20%, #6366f1 6%, transparent 40%),
-    radial-gradient(circle at 40% 30%, #4ade80 5%, transparent 40%),
-    radial-gradient(circle at 60% 25%, #c084fc 7%, transparent 40%),
-    radial-gradient(circle at 80% 20%, #4ade80 5%, transparent 40%),
-
-    radial-gradient(circle at 25% 70%, #c084fc 6%, transparent 40%),
-    radial-gradient(circle at 45% 80%, #6366f1 5%, transparent 40%),
-    radial-gradient(circle at 65% 75%, #4ade80 6%, transparent 40%),
-    radial-gradient(circle at 85% 70%, #c084fc 5%, transparent 40%);
-
-  background-color: #f1f5f9;
-  background-attachment: fixed;
+  background: url("https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/flowers.jpg");
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  margin: 0;
 }
 
-/* 
-body {
-    background: white;
-} */
-
 * {
-    font-family: 'Lexend Deca', sans-serif;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.liquidGlass-wrapper {
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  overflow: hidden;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+  border-radius: inherit;
+}
+
+.liquidGlass-effect {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  backdrop-filter: blur(4px) saturate(120%);
+  filter: url(#glass-distortion);
+  overflow: hidden;
+  isolation: isolate;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.liquidGlass-tint {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.liquidGlass-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+}
+
+.liquidGlass-content {
+  z-index: 3;
+  font-size: 2rem;
+  width: 100%;
+  position: relative;
+  border-radius: inherit;
 }

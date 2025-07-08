@@ -3,12 +3,12 @@ tag app-card
 	mouseY = 0
 
 	css .card
-		backdrop-filter: blur(7px) saturate(200%) brightness(1)
+		backdrop-filter: blur(7px) saturate(140%) brightness(1)
 		bg:white/10 bd:2px white/20 c:$page-text
 		mih:10 miw:10 rd:4 h:100% bxs:lg of:hidden
-		tween:backdrop-filter 500ms ease
+		tween:backdrop-filter 500ms ease txs: 0px 1px 1px black/30
 		@media(hover: hover)
-			@hover backdrop-filter: blur(5px) saturate(170%) brightness(1.1)
+			@hover backdrop-filter: blur(5px) saturate(140%)
 
 		@media(hover: hover)
 			&:before
