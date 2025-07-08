@@ -9,13 +9,12 @@ tag app-button
 	css button 
 		d:flex jc:center ai:center
 		c:$page-text
-		backdrop-filter: blur(4px) saturate(200%)
 		@media(hover: hover)
-			@hover filter:brightness(1.4)
+			@hover backdrop-filter: blur(5px) saturate(200%) brightness(1.3)
 			@hover bxs:lg
-			tween: all 200ms ease of:hidden
-		filter:none @active:brightness(1.1)
-		bg:white/20 bd:white/30
+			tween: all 300ms ease of:hidden
+		backdrop-filter: blur(5px) saturate(200%) @active: blur(5px) saturate(170%) brightness(1)
+		bg:white/10 bd:white/20
 		bxs:sm @active:xs scale:1
 
 		&.icon
@@ -36,7 +35,7 @@ tag app-button
 				content:"" pos:abs t:$y l:$x w:80 h:80
 				pe:none mix-blend-mode:normal translate:-50% -50%
 				tween:opacity 200ms ease
-				bg:radial-gradient(circle at 50% 50%, white/40 0%, transparent 15%)
+				bg:radial-gradient(circle at 50% 50%, white/20 0%, transparent 35%)
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!

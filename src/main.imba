@@ -1,6 +1,7 @@
-import './button'
 import './global.css'
 import './theme'
+import './button'
+import './card'
 
 global css body c:warm2 ff:Arial h:100vh
 
@@ -10,6 +11,12 @@ tag App
 	css d:flex fld:column g:3 ai:center jc:center h:100vh
 
 	<self>
+		<app-card[w:100% maw:80]>
+			<div slot="title"> "Glass Card"
+			<div[p:4] slot="content">
+				<div[mt:auto d:flex jc:end]>
+					<app-button variant="icon" icon="plus"> 
+
 		<app-button variant="icon" icon="plus">
 		<app-button variant="regular"> "Click me"
 		<app-button icon="person" variant="regular"> "Action"
