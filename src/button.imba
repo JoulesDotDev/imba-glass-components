@@ -17,14 +17,14 @@ tag app-button
 		@media(hover: hover)
 			@hover bxs:lg
 			tween: all 200ms ease of:hidden
-		backdrop-filter: blur(15px) saturate(130%) @active: blur(15px) saturate(130%) brightness(1)
+		backdrop-filter: blur(7px) saturate(130%) @active: blur(7px) saturate(130%) brightness(1)
 		bg:white/10 bd:1px white/20
 		bxs:sm @active:sm scale:1
 		
 		&.glass
 			txs: 0px 1px 1px black/40
 			@media(hover: hover)
-				@hover backdrop-filter: blur(15px) saturate(130%) brightness(1.1)
+				@hover backdrop-filter: blur(7px) saturate(130%) brightness(1.1)
 			@media(hover: hover)
 				&:before
 					opacity: 0 @hover:1 rd:inherit
