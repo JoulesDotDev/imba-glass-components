@@ -11,11 +11,11 @@ tag app-card
 		
 		&.solid
 			backdrop-filter: none bg:inherit
-			c:$page-text-solid
+			c:$page-text-solid bd: 3px solid gray9
 		
 		&.glass
 			tween:backdrop-filter 500ms ease 
-			txs: 0px 1px 1px black/90 bd:2px white/20
+			txs: 0px 1px 1px black/90 bd:3px white/15
 
 			@media(hover: hover)
 				@hover backdrop-filter: blur(7px) saturate(130%)
@@ -26,7 +26,7 @@ tag app-card
 					content:"" pos:abs t:$y l:$x w:200 h:200
 					pe:none mix-blend-mode:normal translate:-50% -50%
 					tween:opacity 300ms ease
-					bg:radial-gradient(circle at 50% 50%, white/25 0%, transparent 30%)
+					bg:radial-gradient(circle at 50% 50%, white/30 0%, transparent 50%)
 		
 	css .title fs:12 p:4 
 
