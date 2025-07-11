@@ -38,6 +38,7 @@ tag app-sheet < dialog
 	def render
 		<self.{color} [$x:{mouseX} $y:{mouseY}]>
 			<div.container @mousemove=moved>
+				<global @click.outside.if(self.open)=self.close>
 				<app-button$close .close @click=self.close variant="icon" color="solid" icon="x">
 				<div.header[fs:lg]>
 					<slot name="title">
