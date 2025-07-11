@@ -1,19 +1,28 @@
-tag app-sheet < div
+tag app-sheet < div 
 	prop color = 'glass'
-
+	# TODO: make sheet go away when it leaves the screen
 	mouseX = 0
 	mouseY = 0
+	@observable gone = false
 	@observable open = false
 	@autorun def bodyScroll
 		if open 
+			gone = false
 			setTimeout(&, 360) do
-				console.log("hocus focus", $close)
-				$close.focus()
-							
+				$close.focus()		
 			document.body.style.overflow = 'hidden'
 		else
 			document.body.style.overflow = 'auto'
-	
+			gone = true
+			setTimeout(&, 380) do
+				$close.blur()
+
+	def toggle 
+		data = !data
+
+	def mount
+		gone = !data
+
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
 		mouseX = ((e.clientX - rect.left) / rect.width * 100) + '%'
@@ -42,11 +51,15 @@ tag app-sheet < div
 			transform:translateX(110%)
 			tween: all 360ms cubic-bezier(0.45, 0, 0.2, 1)
 
-	<self.{data ? 'open' : 'closed'}.{color} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
+	def render
 		open = data
-		<app-button$close @click=(data = !data)
-			[pos:absolute t:3 r:3 bg:amber3] variant="icon" color="solid" icon="x">
-		<div[fs:lg]>
-			<slot name="title">
-			<div.content>
-				<slot name="content">
+		if gone
+			return <div> "hello"
+		else
+			<self.{data ? 'open' : 'closed'}.{color} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
+				<app-button$close @click=toggle
+					[pos:absolute t:3 r:3 bg:amber3] variant="icon" color="solid" icon="x">
+				<div[fs:lg]>
+					<slot name="title">
+					<div.content>
+						<slot name="content">

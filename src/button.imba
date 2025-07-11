@@ -12,6 +12,7 @@ tag app-button < button
 		c:$page-text cursor:pointer of:hidden scale:1 
 		$spotlight-color: white/30 $spotlight-size: 25%
 		backdrop-filter: blur(7px) saturate(130%) 	
+		tween: border 0ms ease
 		@media(hover: hover)
 			tween: all 300ms cubic-bezier(0.4, 0, 0.2, 1)
 			@hover bxs:xl @active:md scale:1.1 
@@ -34,7 +35,9 @@ tag app-button < button
 					tween:opacity 300ms ease
 					bg:radial-gradient(circle at 50% 50%, $spotlight-color 0%, transparent $spotlight-size)
 			backdrop-filter@active: blur(7px) saturate(130%) brightness(1)
-		&.solid bd: 2px solid gray9 backdrop-filter:none c:$page-text-solid
+		&.solid bd: 2px solid gray9
+			backdrop-filter:none c:$page-text-solid
+		bd@focus: 2px solid blue5 ol@focus:none
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
