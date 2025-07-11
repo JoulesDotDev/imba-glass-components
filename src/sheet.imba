@@ -12,6 +12,7 @@ tag app-sheet < dialog
 	css all:unset pos:fixed zi: 100 t:4 b:4 r:4 of:hidden
 		w:calc(100% - 2.25rem) maw:100 rd:4 d:block txs: 0px 1px 1px black/40
 		.container h:100% w:100% p:4
+			.header mb:8
 		&.glass bg:white/10 bd:3px white/15 c:$page-text
 			backdrop-filter: blur(8px) saturate(145%)
 			@media(hover: hover)
@@ -38,7 +39,7 @@ tag app-sheet < dialog
 		<self.{color} [$x:{mouseX} $y:{mouseY}]>
 			<div.container @mousemove=moved>
 				<app-button$close .close @click=self.close variant="icon" color="solid" icon="x">
-				<div[fs:lg]>
+				<div.header[fs:lg]>
 					<slot name="title">
 				<div.content>
 					<slot name="content">

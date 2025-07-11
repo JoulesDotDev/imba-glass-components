@@ -1,4 +1,4 @@
-tag app-card
+tag app-card < div
 	prop type = "glass"
 
 	# TODO: make the app card container the real card and also inherit from div
@@ -6,10 +6,9 @@ tag app-card
 	mouseX = 0
 	mouseY = 0
 
-	css .card
-		backdrop-filter: blur(7px) saturate(145%)
-		bg:white/10 c:$page-text
-		mih:10 miw:10 h:100% bxs:xl of:hidden rd:inherit
+	css backdrop-filter: blur(7px) saturate(145%)
+		bg:white/10 c:$page-text rd:4
+		mih:10 miw:10 bxs:xl of:hidden
 		
 		&.solid
 			backdrop-filter: none bg:$bg
@@ -30,15 +29,13 @@ tag app-card
 					tween:opacity 100ms ease
 					bg:radial-gradient(circle at 50% 50%, white/30 0%, transparent 50%)
 		
-	css .title fs:12 p:4 
+		.title fs:12 p:4 
 
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
 		mouseX = ((e.clientX - rect.left) / rect.width * 100) + '%'
 		mouseY = ((e.clientY - rect.top) / rect.height * 100) + '%'
 
-	<self[rd:4]>
-		<div.card.{type} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
-			<div.title><slot name="title"> "Card"
-			<slot name="content">
-		<div.blur>
+	<self.card.{type} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
+		<div.title><slot name="title"> "Card"
+		<slot name="content">
