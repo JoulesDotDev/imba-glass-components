@@ -7,7 +7,6 @@ import './sheet'
 global css body c:warm2 ff:Arial h:100vh
 
 tag App
-	sheetOpen = false
 	css .container d:flex fld:column g:3 ai:center jc:center h:100vh	
 
 	<self>
@@ -30,9 +29,10 @@ tag App
 			<app-button variant="regular"> "Click me"
 			<app-button[bg:sky3] color="solid" icon="person" variant="regular"> "Action"
 			<app-button icon="person" variant="regular"> "Action"
+
 		<div[p:8] route='/sheet'>
-			<app-button @click=(sheetOpen = !sheetOpen) variant="regular"> "Toggle Sheet"
-			<app-sheet[$bg:sky3] bind=sheetOpen>
+			<app-button @click=($sheet.showModal()) variant="regular"> "Toggle Sheet"
+			<app-sheet$sheet [$bg:sky3]>
 				<%title slot="title"> "Close me"
 				<%content slot="content"> "Here is the sheet menu"
 
