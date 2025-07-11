@@ -12,7 +12,7 @@ tag app-sheet < div
 			imba.commit!
 			setTimeout(&, 0) do
 				open = true
-			setTimeout(&, 360) do
+			setTimeout(&, 350) do
 				$close.focus()		
 			document.body.style.overflow = 'hidden'
 		else
