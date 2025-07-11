@@ -32,7 +32,7 @@ tag App
 
 		<div[p:8] route='/sheet'>
 			<app-button @click=($sheet.showModal()) variant="regular"> "Toggle Sheet"
-			<app-sheet$sheet [$bg:sky3]>
+			<app-sheet$sheet [$bg:sky3 $close:amber3]>
 				<%title slot="title"> "Close me"
 				<%content slot="content"> "Here is the sheet menu"
 
