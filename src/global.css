@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
 
-body {
-    background: url("https://raw.githubusercontent.com/lucasromerodb/liquid-glass-effect-macos/refs/heads/main/assets/flowers.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+
 
 /* body {
     background: white;
