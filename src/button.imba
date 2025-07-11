@@ -1,5 +1,5 @@
 tag app-button < button
-	prop variant
+	prop variant = "regular"
 	prop icon
 	prop round
 	prop color = "glass"

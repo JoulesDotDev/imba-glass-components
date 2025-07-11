@@ -1,6 +1,8 @@
 tag app-card
 	prop type = "glass"
 
+	# TODO: make the app card container the real card and also inherit from div
+
 	mouseX = 0
 	mouseY = 0
 
@@ -10,7 +12,7 @@ tag app-card
 		mih:10 miw:10 h:100% bxs:xl of:hidden rd:inherit
 		
 		&.solid
-			backdrop-filter: none bg:inherit
+			backdrop-filter: none bg:$bg
 			c:$page-text-solid bd: 3px solid gray9
 		
 		&.glass
