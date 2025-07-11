@@ -21,7 +21,7 @@ tag app-sheet < dialog
 						content:"" pos:abs t:$y l:$x w:500 h:500
 						pe:none mix-blend-mode:normal translate:-50% -50%
 						tween:opacity 100ms ease filter: blur(16px)
-						bg:radial-gradient(circle at 50% 50%, white/30 0%, transparent 50%)
+						bg:radial-gradient(circle at 50% 50%, white/20 0%, transparent 35%)
 		.close pos:absolute t:unset @sm:3 b:3 @sm:unset r:3 bg:$close
 		&.solid
 			bd:3px solid gray9 c:$page-text-solid bg:$bg
