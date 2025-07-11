@@ -16,11 +16,11 @@ tag app-button < button
 		&[disabled] pe:none o:0.6
 		@media(hover: hover)
 			tween: all 100ms cubic-bezier(0.4, 0, 0.2, 1)
-			@hover bxs:xl @active:md scale:1.15 
+			@hover bxs:xl @active:md scale:1.1
 		scale@active:0.95
 		&.icon rd:full h:12 w:12 fs:2rem
 			@media(hover: hover)
-				@hover scale:1.2
+				@hover scale:1.15
 			scale@active: 0.95
 			$spotlight-color: white/25 $spotlight-size: 15%
 		&.regular rd:3 fs:6 px:6 py:1.5 h:10 

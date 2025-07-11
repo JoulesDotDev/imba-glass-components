@@ -11,8 +11,10 @@ tag app-sheet < dialog
 
 	css all:unset pos:fixed zi: 100 t:4 b:4 r:4 of:hidden user-select:text
 		w:calc(100% - 2.25rem) maw:100 rd:4 d:block txs: 0px 1px 1px black/40
-		.container h:100% w:100% p:4
+		.container h:100% w:100% p:4 pb:0 d:flex fld:column
 			.header mb:8
+			.content ofy:auto scrollbar-width:none flex:1 pb:4
+				&::-webkit-scrollbar d:none 
 		&.glass bg:white/10 bd:3px white/15 c:$page-text
 			backdrop-filter: blur(8px) saturate(145%)
 			@media(hover: hover)
@@ -40,7 +42,7 @@ tag app-sheet < dialog
 			<div.container @mousemove=moved>
 				<global @click.outside.if(self.open)=self.close>
 				<app-button$close .close @click=self.close variant="icon" color="solid" icon="x">
-				<div.header[fs:lg]>
+				<div.header[fs:2xl]>
 					<slot name="title">
 				<div.content>
 					<slot name="content">
