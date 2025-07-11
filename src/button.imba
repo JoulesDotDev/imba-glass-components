@@ -37,7 +37,10 @@ tag app-button < button
 			backdrop-filter@active: blur(7px) saturate(130%) brightness(1)
 		&.solid bd: 2px solid gray9
 			backdrop-filter:none c:$page-text-solid
-		bd@focus: 4px solid blue5 ol:none
+		
+		&:focus-visible
+			tween: outline 0ms ease
+			ol:2px solid blue5 olo:2px
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
