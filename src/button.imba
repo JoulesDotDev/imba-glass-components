@@ -11,7 +11,6 @@ tag app-button < button
 		d:inline-flex jc:center ai:center bd:0 bxs:md
 		c:$page-text cursor:pointer of:hidden scale:1 
 		$spotlight-color: white/30 $spotlight-size: 25%
-		backdrop-filter: blur(7px) saturate(130%) 	
 		tween: border 0ms ease
 		@media(hover: hover)
 			tween: all 300ms cubic-bezier(0.4, 0, 0.2, 1)
@@ -26,6 +25,7 @@ tag app-button < button
 			&:has(.bsicon) pl:3
 			.bsicon mr:4 fs:1.5rem
 		&.glass bg:white/10 bd:2px white/15 txs: 0px 1px 1px black/40
+			backdrop-filter: blur(7px) saturate(130%) 		
 			@media(hover: hover)
 				@hover backdrop-filter: blur(7px) saturate(130%) brightness(1.8)
 				&:before
@@ -37,7 +37,7 @@ tag app-button < button
 			backdrop-filter@active: blur(7px) saturate(130%) brightness(1)
 		&.solid bd: 2px solid gray9
 			backdrop-filter:none c:$page-text-solid
-		bd@focus: 2px solid blue5 ol@focus:none
+		bd@focus: 4px solid blue5 ol:none
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!

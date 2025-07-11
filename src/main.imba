@@ -7,7 +7,7 @@ import './sheet'
 global css body c:warm2 ff:Arial h:100vh
 
 tag App
-	sheetOpen = true
+	sheetOpen = false
 	css .container d:flex fld:column g:3 ai:center jc:center h:100vh	
 
 	<self>

@@ -1,27 +1,26 @@
 tag app-sheet < div 
 	prop color = 'glass'
-	# TODO: make sheet go away when it leaves the screen
+
 	mouseX = 0
 	mouseY = 0
-	@observable gone = false
-	@observable open = false
-	@autorun def bodyScroll
-		if open 
+	gone = false
+	open = false
+
+	def setOpen(newData)
+		if newData 
 			gone = false
+			imba.commit!
+			setTimeout(&, 0) do
+				open = true
 			setTimeout(&, 360) do
 				$close.focus()		
 			document.body.style.overflow = 'hidden'
 		else
 			document.body.style.overflow = 'auto'
-			gone = true
+			open = false
 			setTimeout(&, 380) do
-				$close.blur()
-
-	def toggle 
-		data = !data
-
-	def mount
-		gone = !data
+				gone = true
+				imba.commit!
 
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
@@ -29,8 +28,8 @@ tag app-sheet < div
 		mouseY = ((e.clientY - rect.top) / rect.height * 100) + '%'
 
 	css pos:absolute zi: 100 t:4 b:4 r:4 of:hidden
-		w:calc(100% - 2rem) maw:100 rd:4 p:4
-
+		w:calc(100% - 2rem) maw:100 rd:4 p:4 d:block
+		&.gone d:none
 		&.glass bg:white/10 bd:3px white/15 c:$page-text
 			backdrop-filter: blur(8px) saturate(130%)
 			@media(hover: hover)
@@ -52,14 +51,11 @@ tag app-sheet < div
 			tween: all 360ms cubic-bezier(0.45, 0, 0.2, 1)
 
 	def render
-		open = data
-		if gone
-			return <div> "hello"
-		else
-			<self.{data ? 'open' : 'closed'}.{color} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
-				<app-button$close @click=toggle
-					[pos:absolute t:3 r:3 bg:amber3] variant="icon" color="solid" icon="x">
-				<div[fs:lg]>
-					<slot name="title">
-					<div.content>
-						<slot name="content">
+		setOpen(data)
+		<self.{open ? 'open' : 'closed'}.{color}.{gone ? "gone" : ""} [$x:{mouseX} $y:{mouseY}] @mousemove=moved>
+			<app-button$close @click=(data = false)
+				[pos:absolute t:3 r:3 bg:amber3] variant="icon" color="solid" icon="x">
+			<div[fs:lg]>
+				<slot name="title">
+				<div.content>
+					<slot name="content">
