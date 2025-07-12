@@ -37,12 +37,11 @@ tag app-sheet < dialog
 		&::backdrop
 			bg:white/6 backdrop-filter: blur(3px)
 
-	def render
-		<self.{color} [$x:{mouseX} $y:{mouseY}]>
-			<div.container @mousemove=moved>
-				<global @click.outside.if(self.open)=self.close>
-				<app-button$close .close @click=self.close variant="icon" color="solid" icon="x">
-				<div.header[fs:2xl]>
-					<slot name="title">
-				<div.content>
-					<slot name="content">
+	<self.{color} [$x:{mouseX} $y:{mouseY}]>
+		<div.container @mousemove=moved>
+			<global @click.outside.if(self.open)=self.close>
+			<app-button$close .close @click=self.close variant="icon" color="solid" icon="x">
+			<div.header[fs:2xl]>
+				<slot name="title">
+			<div.content>
+				<slot name="content">
