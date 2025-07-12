@@ -3,7 +3,9 @@ tag app-sheet < dialog
 
 	mouseX = 0
 	mouseY = 0
-
+	# TODO: sticky header with fade, and sticky footer with fade option
+	# TODO: better close button, maybe put in header and in footer
+	# TODO: fullscreen on mobile (@sm)
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
 		mouseX = ((e.clientX - rect.left) / rect.width * 100) + '%'
@@ -12,20 +14,20 @@ tag app-sheet < dialog
 	css all:unset pos:fixed zi: 100 t:4 b:4 r:4 of:hidden user-select:text
 		w:calc(100% - 2.25rem) maw:100 rd:4 d:block txs: 0px 1px 1px black/40
 		.container h:100% w:100% p:4 pb:0 d:flex fld:column
-			.header mb:8
-			.content ofy:auto scrollbar-width:none flex:1 pb:4
+			.header mb:8 zi:1
+			.content ofy:auto scrollbar-width:none flex:1 pb:18 zi:1
 				&::-webkit-scrollbar d:none 
 		&.glass bg:white/10 bd:3px white/15 c:$page-text
 			backdrop-filter: blur(8px) saturate(145%)
 			@media(hover: hover)
 				.container
 					&:before
-						opacity: 0 @hover:1 rd:inherit
+						opacity: 0 @hover:1 rd:inherit zi:0
 						content:"" pos:abs t:$y l:$x w:500 h:500
 						pe:none mix-blend-mode:normal translate:-50% -50%
 						tween:opacity 100ms ease filter: blur(16px)
 						bg:radial-gradient(circle at 50% 50%, white/20 0%, transparent 35%)
-		.close pos:absolute t:unset @sm:4 b:4 @sm:unset r:4 bg:$close
+		.close pos:absolute t:unset @sm:4 b:4 @sm:unset r:4 bg:$close zi:2
 		&.solid
 			bd:3px solid gray9 c:$page-text-solid bg:$bg
 		&[open] l:unset o:1
