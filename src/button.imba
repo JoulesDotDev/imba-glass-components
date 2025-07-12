@@ -42,7 +42,7 @@ tag app-button < button
 			backdrop-filter:none c:$page-text-solid
 		&:focus-visible
 			tween: outline 0ms ease
-			ol:2px solid sky3 olo:2px
+			ol:4px solid white olo:2px filter:brightness(1.3)
 	
 	def moved e
 		let rect = e.currentTarget.getBoundingClientRect!
